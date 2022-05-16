@@ -58,7 +58,7 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_security_group" "this" {
-  for_each = local.security_groups
+  for_each = var.security_groups
 
   name        = each.value.name
   description = each.value.description
