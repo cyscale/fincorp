@@ -7,7 +7,7 @@ output "public_subnets" {
 }
 
 output "db_subnet_group_name" {
-  value = aws_db_subnet_group.this[*].name
+  value = aws_db_subnet_group.this.name
 }
 
 output "security_groups" {
