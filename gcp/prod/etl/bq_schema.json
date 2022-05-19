@@ -1,0 +1,20 @@
+[
+  {
+    "description": "Customer ID",
+    "mode": "NULLABLE",
+    "name": "customerId",
+    "type": "STRING"
+  },
+  {
+    "description": "Payment Amount",
+    "mode": "NULLABLE",
+    "name": "amount",
+    "type": "INTEGER"
+  },
+  {
+    "description": "Transaction Date",
+    "mode": "NULLABLE",
+    "name": "fullDate",
+    "type": "DATE"
+  }
+]
