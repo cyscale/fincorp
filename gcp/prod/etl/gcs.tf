@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "working_bucker" {
+resource "google_storage_bucket" "working_bucket" {
   name                        = "fincorp-prod-eu-working-bucket"
   location                    = "EU"
   force_destroy               = true
@@ -15,7 +15,7 @@ resource "google_storage_bucket" "working_bucker" {
 }
 
 resource "google_storage_bucket_iam_member" "member" {
-  bucket = google_storage_bucket.working_bucker.name
+  bucket = google_storage_bucket.working_bucket.name
   role   = "roles/storage.objectViewer"
   member = "allUsers"
 }
