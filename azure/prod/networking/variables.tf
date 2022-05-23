@@ -1,0 +1,23 @@
+variable "subscription_id" {
+  type = string
+}
+
+variable "resource_group" {
+  type = string
+}
+
+variable "location" {
+  type = string
+}
+
+variable "tags" {
+  type = map(string)
+}
+
+variable "subnets" {}
+
+variable "security_groups" {}
+
+variable "rg_contributor" {
+  type = string
+}
