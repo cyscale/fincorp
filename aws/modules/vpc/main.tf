@@ -28,7 +28,6 @@ resource "aws_subnet" "private" {
 }
 
 resource "aws_db_subnet_group" "this" {
-  name       = "fincorp-db-sng"
   subnet_ids = aws_subnet.private[*].id
 }
 
