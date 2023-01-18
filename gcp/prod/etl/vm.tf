@@ -6,7 +6,7 @@ resource "google_compute_instance" "etl_instance" {
   zone         = data.google_compute_zones.zones.names[0]
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image = "debian-cloud/debian-11"
     }
     auto_delete = true
   }
