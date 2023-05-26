@@ -75,6 +75,7 @@ resource "aws_ecs_task_definition" "this" {
   family                   = "family-${local.name}-${each.value.name}"
   memory                   = 512
   requires_compatibilities = ["FARGATE"]
+  network_mode             = "awsvpc"
 }
 
 resource "aws_ecs_service" "this" {

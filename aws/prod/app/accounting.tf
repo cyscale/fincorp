@@ -28,8 +28,14 @@ resource "aws_ebs_volume" "this" {
 module "s3_accounting_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
-  bucket = "fincorp-accounting-bucket"
-  acl    = "public-read"
+  bucket                   = "fincorp-accounting-bucket"
+  acl                      = "public-read"
+  block_public_acls        = false
+  ignore_public_acls       = false
+  restrict_public_buckets  = false
+  block_public_policy      = false
+  control_object_ownership = true
+  object_ownership         = "BucketOwnerPreferred"
 
   lifecycle_rule = [
     {
