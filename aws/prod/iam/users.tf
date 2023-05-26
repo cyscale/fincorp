@@ -1,6 +1,9 @@
 resource "aws_iam_user" "playground" {
-  name          = "playground.user"
-  force_destroy = true
+  name = "playground.user"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_iam_user_login_profile" "playground" {
