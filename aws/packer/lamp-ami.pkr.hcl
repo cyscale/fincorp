@@ -1,5 +1,5 @@
-source "amazon-ebs" "golden" {
-  ami_name      = "packer-golden-amzn-ami"
+source "amazon-ebs" "lamp" {
+  ami_name      = "packer-lamp-amzn-ami"
   instance_type = "t2.micro"
   region        = "eu-west-1"
   source_ami_filter {
@@ -17,6 +17,14 @@ source "amazon-ebs" "golden" {
 
 build {
   sources = [
-    "source.amazon-ebs.golden"
+    "source.amazon-ebs.lamp"
   ]
+
+  provisioner "shell" {
+    inline = [
+      "sudo yum update -y",
+      "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2",
+      "sudo yum install -y httpd-2.4.48-2.amzn2 mariadb-server",
+    ]
+  }
 }

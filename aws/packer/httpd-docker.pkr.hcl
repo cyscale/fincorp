@@ -1,23 +1,23 @@
-source "docker" "nginx" {
-  image  = "nginx"
+source "docker" "httpd" {
+  image  = "httpd:2.4.50-alpine"
   commit = true
 }
 
 build {
-  name = "batch"
+  name = "httpd"
   sources = [
-    "source.docker.nginx"
+    "source.docker.httpd"
   ]
 
   post-processors {
     post-processor "docker-tag" {
-      repository = "${var.ecr_uri}/batch"
+      repository = "${var.ecr_public_uri}/httpd"
       tags       = ["1.0", "latest"]
     }
 
     post-processor "docker-push" {
       ecr_login    = true
-      login_server = "https://${var.ecr_uri}/"
+      login_server = "https://${var.ecr_public_uri}/"
     }
   }
 }
