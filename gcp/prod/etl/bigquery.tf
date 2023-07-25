@@ -1,5 +1,6 @@
 module "bigquery" {
   source = "terraform-google-modules/bigquery/google"
+  version = "~> 5.4"
 
   dataset_id                 = "payments"
   dataset_name               = "Payments"
