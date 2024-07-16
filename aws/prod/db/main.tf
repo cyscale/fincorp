@@ -22,7 +22,7 @@ module "rds" {
   source                 = "../../modules/rds"
   storage_size           = 20
   engine                 = "mysql"
-  engine_version         = "8.0.28"
+  engine_version         = "8.0.37"
   instance_class         = "db.t3.micro"
   name                   = "fincorp"
   user                   = var.db_user
